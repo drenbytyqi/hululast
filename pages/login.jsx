@@ -6,7 +6,7 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth'
 import { firebaseApp } from '../firebase-config'
 import { async } from '@firebase/util'
 
-const login = () => {
+const Login = () => {
     const firebaseAuth = getAuth(firebaseApp);
     const provider = new GoogleAuthProvider();
     const router = useRouter();
@@ -40,4 +40,4 @@ const login = () => {
   )
 }
 
-export default login
+export default Login
