@@ -5,11 +5,21 @@ import {
     LightningBoltIcon,
     SearchIcon,
     UserIcon,
+    LogoutIcon,
+
 } from '@heroicons/react/outline'
 import Image from "next/image"
 import Headeritem from "./Headeritem"
+import { useRouter} from 'next/router'
+
 
 function Header() {
+
+  const router = useRouter();
+    function signOut ()  {
+        localStorage.clear();
+        router.push("/login")
+    }
   return (
     <header className="flex flex-col sm:flex-row m-5 justify-between items-center h-auto">
         <div className='flex flex-grow justify-evenly max-w-2xl'>
@@ -19,6 +29,7 @@ function Header() {
             <Headeritem title='COLLECTIONS' Icon={CollectionIcon} />
             <Headeritem title='SEARCH' Icon={SearchIcon} />
             <Headeritem title='ACCOUNT' Icon={UserIcon} />
+            <button onClick={signOut}><Headeritem title='LOG OUT' Icon={LogoutIcon}  /></button>
         </div>
         <Image
         className="object-contain"
@@ -26,6 +37,8 @@ function Header() {
         />
     </header>
   )
+  
 }
+
 
 export default Header
