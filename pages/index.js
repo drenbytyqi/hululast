@@ -7,24 +7,20 @@ import React, { useEffect, useState } from "react";
 import { userAccessToken, fetchUser } from "../utils/fetchUserDetails";
 import { useRouter } from "next/router";
 
-
-
-export default function Home({ results }) {
-  console.log(results)
+export default function Home({ results, movies, useractivity }) {
+  console.log(useractivity)
 
   const router = useRouter();
-  const [user, setUser] = useState({})
 
 
+  console.log(movies)
   useEffect(() => {
     const accessToken = userAccessToken();
-    if (!accessToken) {
-      return () => {
-        router.push("/login");
-      }
+    if (accessToken === null) {
+
+      router.push("/login");
     }
-    const [userInfo] = fetchUser()
-    setUser(userInfo);
+
   }, []);
 
 
@@ -32,6 +28,7 @@ export default function Home({ results }) {
 
 
     <div>
+
       <Head>
         <title>Hulu 2.9</title>
         <link rel="icon" href="/favicon.ico" />
@@ -41,9 +38,7 @@ export default function Home({ results }) {
 
       <Nav />
 
-      <Results results={results} />
-
-
+       <Results results={results}  movies={movies} useractivity = {useractivity}/>  
     </div>
   )
 }
@@ -56,9 +51,17 @@ export async function getServerSideProps(context) {
     }`
   ).then(res => res.json());
 
+  const res = await fetch('http://localhost:3000/api/movies');
+  const { data } = await res.json();
+
+  const usersApi = await fetch('http://localhost:3000/api/users/');
+  const { dataU } = await usersApi.json();
+
   return {
     props: {
       results: request.results,
+      movies: data,
+      useractivity: dataU 
     }
   }
 }
