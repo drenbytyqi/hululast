@@ -15,12 +15,12 @@ export default async (req, res) => {
                 const movie = await Movies.findById(id);
 
                 if (!movie) {
-                    return res.status(400).json({ success: false });
+                    return res.json({ success: false });
                 }
 
-                res.status(200).json({ success: true, data: movie });
+                res.json({ success: true, data: movie });
             } catch (error) {
-                res.status(400).json({ success: false });
+                res.json({ success: false });
             }
             break;
         case 'PUT':
@@ -31,12 +31,12 @@ export default async (req, res) => {
                 });
 
                 if (!movie) {
-                    return res.status(400).json({ success: false });
+                    return res.json({ success: false });
                 }
 
-                res.status(200).json({ success: true, data: movie });
+                res.json({ success: true, data: movie });
             } catch (error) {
-                res.status(400).json({ success: false });
+                res.json({ success: false });
             }
             break;
         case 'DELETE':
@@ -44,16 +44,16 @@ export default async (req, res) => {
                 const deletedMovie = await Movie.deleteOne({ _id: id });
 
                 if (!deletedMovie) {
-                    return res.status(400).json({ success: false })
+                    return res.json({ success: false })
                 }
 
-                res.status(200).json({ success: true, data: {} });
+                res.json({ success: true, data: {} });
             } catch (error) {
-                res.status(400).json({ success: false })
+                res.json({ success: false })
             }
             break;
         default:
-            res.status(400).json({ success: false })
+            res.json({ success: false })
             break;
     }
 }

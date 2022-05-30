@@ -11,22 +11,22 @@ export default async (req, res) => {
             try {
                 const movies = await Movies.find({});
 
-                res.status(200).json({ success: true, data: movies })
+                res.json({ success: true, data: movies })
             } catch (error) {
-                res.status(400).json({ success: false });
+                res.json({ success: false });
             }
             break;
         case 'POST':
             try {
                 const movie = await Movies.create(req.body);
 
-                res.status(201).json({ success: true, data: movie })
+                res.json({ success: true, data: movie })
             } catch (error) {
-                res.status(400).json({ success: false });
+                res.json({ success: false });
             }
             break;
         default:
-            res.status(400).json({ success: false });
+            res.json({ success: false });
             break;
     }
 }
