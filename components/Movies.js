@@ -1,9 +1,8 @@
 
 import fetch from 'isomorphic-unfetch';
 
-
-const Movies = ({ notes }) => {
-    console.log(notes)
+const Movies = ({ movies }) => {
+    console.log(movies)
     return (
         <div>flaka
             {/* {notes.map(m => {
@@ -16,10 +15,10 @@ const Movies = ({ notes }) => {
 }
 
 Movies.getInitialProps = async () => {
-    const res = await fetch('http://localhost:3000/api/notes');
+    const res = await fetch('http://localhost:3000/api/movies');
     const { data } = await res.json();
   
-    return { notes: data }
+    return { movies: data }
 }
   
 export default Movies;

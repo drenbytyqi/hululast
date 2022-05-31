@@ -4,7 +4,6 @@ import { useRouter } from "next/router"
 
 import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth'
 import { firebaseApp } from '../firebase-config'
-import { async } from '@firebase/util'
 
 const Login = () => {
     const firebaseAuth = getAuth(firebaseApp);

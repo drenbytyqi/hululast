@@ -58,8 +58,6 @@ const Thumbnail = forwardRef(({ result, movie, useractivity }, ref) => {
         setLiked(prevLiked => true)
     }
 
-    console.log(useractivity)
-
 
 
     const decreaseCount = async () => {
