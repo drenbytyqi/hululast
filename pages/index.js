@@ -21,10 +21,7 @@ export default function Home({ results }) {
 
 
   return (
-
-
     <div>
-
       <Head>
         <title>Hulu 2.9</title>
         <link rel="icon" href="/favicon.ico" />
