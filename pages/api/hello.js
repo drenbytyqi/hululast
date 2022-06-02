@@ -4,13 +4,13 @@
 // dbConnect();
 
 // export default async (_req, res) => {
-//   res.json({ test: 'test'})
+//   res.status(200).json({ test: 'test'})
 // }
 
 
-/*export default function handler(_req, res) {
+export default function handler(_req, res) {
   res.status(200).json({ name: 'John Doe' })
-}*/
+}
 
   
 

@@ -7,17 +7,13 @@ import React, { useEffect, useState } from "react";
 import { userAccessToken, fetchUser } from "../utils/fetchUserDetails";
 import { useRouter } from "next/router";
 
-export default function Home({ results, movies, useractivity }) {
-  console.log(useractivity)
+export default function Home({ results }) {
 
   const router = useRouter();
 
-
-  console.log(movies)
   useEffect(() => {
     const accessToken = userAccessToken();
     if (accessToken === null) {
-
       router.push("/login");
     }
 
@@ -38,30 +34,30 @@ export default function Home({ results, movies, useractivity }) {
 
       <Nav />
 
-       <Results results={results}  movies={movies} useractivity = {useractivity}/>  
+       <Results results={results} />  
     </div>
   )
 }
 
 export async function getServerSideProps(context) {
   const genre = context.query.genre
+  console.log(genre)
 
   const request = await fetch(
     `https://api.themoviedb.org/3${requests[genre]?.url || requests.fetchTrending.url
-    }`
-  ).then(res => res.json());
+    }`).then((res) => res.json());
 
-  const res = await fetch('http://localhost:3000/api/movies');
-  const { data } = await res.json();
+  // const res = await fetch('http://localhost:3000/api/movies');
+  // const { data } = await res.json();
 
-  const usersApi = await fetch('http://localhost:3000/api/users/');
-  const { dataU } = await usersApi.json();
+  // const usersApi = await fetch('http://localhost:3000/api/users/');
+  // const { dataU } = await usersApi.json();
 
   return {
     props: {
       results: request.results,
-      movies: data,
-      useractivity: dataU 
+      // movies: data,
+      // useractivity: dataU 
     }
   }
 }

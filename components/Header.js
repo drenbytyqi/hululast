@@ -31,6 +31,8 @@ function Header() {
             <Headeritem title='ACCOUNT' Icon={UserIcon} />
             <button onClick={signOut}><Headeritem title='LOG OUT' Icon={LogoutIcon}  /></button>
         </div>
+
+        
         <Image
         className="object-contain"
         src="https://Links.papareact.com/ua6" width={200} height={100} alt=""

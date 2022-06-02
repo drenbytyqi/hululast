@@ -4,7 +4,7 @@ import fetch from 'isomorphic-unfetch';
 const Movies = ({ movies }) => {
     console.log(movies)
     return (
-        <div>flaka
+        <div>dreni
             {/* {notes.map(m => {
                 <p>
                     {m.title}
