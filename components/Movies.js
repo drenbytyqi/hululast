@@ -5,11 +5,6 @@ const Movies = ({ movies }) => {
     console.log(movies)
     return (
         <div>dreni
-            {/* {notes.map(m => {
-                <p>
-                    {m.title}
-                </p>
-            })} */}
         </div>
     )
 }
