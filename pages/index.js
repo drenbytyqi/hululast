@@ -46,10 +46,10 @@ export async function getServerSideProps(context) {
     `https://api.themoviedb.org/3${requests[genre]?.url || requests.fetchTrending.url
     }`).then((res) => res.json());
 
-  const res = await fetch('http://localhost:3000/api/movies/');
+  const res = await fetch('https://hulu3-kappa.vercel.app/api/movies/');
   const { data } = await res.json();
 
-  const usersApi = await fetch('http://localhost:3000/api/users/');
+  const usersApi = await fetch('https://hulu3-kappa.vercel.app/api/users/');
   const { dataU } = await usersApi.json();
 
   return {
