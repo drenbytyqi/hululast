@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
-import dbConnect from "./utils/dbConnect";
+require('firebase/database')
+import { getFirestore } from "@firebase/firestore";
 
 const firebaseConfig = {
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY ,
@@ -13,4 +14,5 @@ const firebaseConfig = {
 
   export const firebaseApp = initializeApp(firebaseConfig);
 
-  dbConnect()
+const dbConnect = getFirestore();
+export {dbConnect}
