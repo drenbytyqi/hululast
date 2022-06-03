@@ -23,7 +23,7 @@ const Thumbnail = forwardRef(({ result, movie, useractivity }, ref) => {
         const [userInfo] = fetchUser();
         setUser(userInfo)
         try {
-            const res = await fetch(`https://hulu3-kappa.vercel.app/api/movies`,{
+            const res = await fetch(`http://localhost:3000/api/movies`,{
                 method: 'POST',
                 headers: {
                     "Accept": "application/json",
@@ -34,7 +34,7 @@ const Thumbnail = forwardRef(({ result, movie, useractivity }, ref) => {
 
 
             if(useractivity === undefined){
-                const resU = await fetch(`https://hulu3-kappa.vercel.app/api/users`, {
+                const resU = await fetch(`http://localhost:3000/api/users`, {
                     method: 'POST',
                     headers: {
                         "Accept": "application/json",
@@ -43,7 +43,7 @@ const Thumbnail = forwardRef(({ result, movie, useractivity }, ref) => {
                     body: JSON.stringify({user_id: userInfo.uid, user_movie_id: result.id, vote: true })
                 })
             }
-            const resU = await fetch(`https://hulu3-kappa.vercel.app/api/users/${useractivity._id}`, {
+            const resU = await fetch(`http://localhost:3000/api/users/${useractivity._id}`, {
                 method: 'PUT',
                 headers: {
                     "Accept": "application/json",
@@ -65,7 +65,7 @@ const Thumbnail = forwardRef(({ result, movie, useractivity }, ref) => {
         const [userInfo] = fetchUser();
         setUser(userInfo)
         try {
-            const res = await fetch(`https://hulu3-kappa.vercel.app/api/movies/${movie._id}`, {
+            const res = await fetch(`http://localhost:3000/api/movies/${movie._id}`, {
                 method: 'PUT',
                 headers: {
                     "Accept": "application/json",
@@ -73,7 +73,7 @@ const Thumbnail = forwardRef(({ result, movie, useractivity }, ref) => {
                 },
                 body: JSON.stringify({ tmdb_id: result.id, tmdb_title: result.title || result.original_name, total_votes: count - 1 })
             })
-            const resU = await fetch(`https://hulu3-kappa.vercel.app/api/users/${useractivity._id}`, {
+            const resU = await fetch(`http://localhost:3000/api/users/${useractivity._id}`, {
                 method: 'PUT',
                 headers: {
                     "Accept": "application/json",
