@@ -8,7 +8,7 @@ import { userAccessToken, fetchUser } from "../utils/fetchUserDetails";
 import { useRouter } from "next/router";
 
 export default function Home({ results, movies, useractivity }) {
-  console.log(useractivity)
+  console.log(results)
   const router = useRouter();
 
   console.log(movies)

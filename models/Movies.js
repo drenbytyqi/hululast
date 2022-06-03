@@ -1,15 +1,15 @@
 const mongoose = require('mongoose')
 
-const UserActivitySchema = new mongoose.Schema({
-    user_id: {
+const MoviesSchema = new mongoose.Schema({
+    tmdb_id: {
+        type: Number,
+    },
+    tmdb_title: {
         type: String,
     },
-    user_movie_id: {
-        type: String,
-    },
-    vote: {
-        type: Boolean,
+    total_votes: {
+        type: Number
     }
 })
 
-module.exports = mongoose.models.UserActivity || mongoose.model('UserActivity',UserActivitySchema);
+module.exports = mongoose.models.Movies || mongoose.model('Movies',MoviesSchema);
