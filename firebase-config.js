@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import dbConnect from "./utils/dbConnect";
 
 const firebaseConfig = {
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY ,
@@ -11,3 +12,5 @@ const firebaseConfig = {
 
 
   export const firebaseApp = initializeApp(firebaseConfig);
+
+  dbConnect()
