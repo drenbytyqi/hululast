@@ -88,6 +88,7 @@ const Thumbnail = forwardRef(({ result, movie, useractivity }, ref) => {
 
         setLiked(prevLiked => false)
     }
+    
 
     return (
         <div ref={ref} className='p-2 group cursor-pointer transition duration-200 ease-in transform sm:hover:scale-105 hover:z-50'>
