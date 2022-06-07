@@ -19,6 +19,7 @@ export default function Home({ results, movies, useractivity }) {
       router.push("/login");
     }
 
+    
   }, []);
 
 
